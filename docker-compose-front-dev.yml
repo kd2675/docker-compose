@@ -10,3 +10,7 @@ services:
     environment:
       TZ=Asia: Seoul
       USE_PROFILE: dev
+
+networks:
+  network_dev:
+    external: true
