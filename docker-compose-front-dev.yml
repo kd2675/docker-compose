@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   front-dev:
+    container_name: withfront_dev
     image: kimd0/withfront:latest
     networks:
       - network_dev

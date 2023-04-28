@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   front-prod:
+    container_name: withfront_prod
     image: kimd0/withfront:latest
     networks:
       - network_prod
@@ -17,6 +18,7 @@ services:
       start_period: 20s
       timeout: 10s
   front-prod1:
+    container_name: withfront_prod1
     image: kimd0/withfront:latest
     networks:
       - network_prod
@@ -32,6 +34,7 @@ services:
       start_period: 20s
       timeout: 10s
   front-prod2:
+    container_name: withfront_prod2
     image: kimd0/withfront:latest
     networks:
       - network_prod
