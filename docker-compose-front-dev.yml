@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  front-dev:
+    image: kimd0/withfront:latest
+    networks:
+      - network_dev
+    ports:
+      - 8801:8801
+    environment:
+      TZ=Asia: Seoul
+      USE_PROFILE: dev
