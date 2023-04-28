@@ -23,7 +23,7 @@ services:
     networks:
       - network_prod
     ports:
-      - 8901:8901
+      - 8911:8901
     environment:
       TZ=Asia: Seoul
       USE_PROFILE: dev
