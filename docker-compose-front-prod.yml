@@ -10,7 +10,7 @@ services:
       - 8901:8901
     environment:
       TZ=Asia: Seoul
-      USE_PROFILE: dev
+      USE_PROFILE: prod
     healthcheck:
       test: curl -f http://localhost:8901 || exit 1
       interval: 60s
@@ -26,7 +26,7 @@ services:
       - 8911:8901
     environment:
       TZ=Asia: Seoul
-      USE_PROFILE: dev
+      USE_PROFILE: prod
     healthcheck:
       test: curl -f http://localhost:8911 || exit 1
       interval: 60s
@@ -42,7 +42,7 @@ services:
       - 8921:8901
     environment:
       TZ=Asia: Seoul
-      USE_PROFILE: dev
+      USE_PROFILE: prod
     healthcheck:
       test: curl -f http://localhost:8921 || exit 1
       interval: 60s
