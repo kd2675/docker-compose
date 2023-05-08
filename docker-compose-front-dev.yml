@@ -1,4 +1,5 @@
 version: '3.8'
+name: withfront_dev
 
 services:
   front-dev:
