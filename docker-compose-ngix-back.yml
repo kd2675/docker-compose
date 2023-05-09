@@ -25,3 +25,6 @@ services:
 networks:
   network_prod:
     external: true
+volumes:
+  nginx_back:
+    external: true
