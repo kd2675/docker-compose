@@ -2,7 +2,7 @@ version: '3.8'
 name: withback_prod
 
 services:
-  withback_prod:
+  withback-prod:
     container_name: withback_prod
     image: kimd0/withback:latest
     networks:

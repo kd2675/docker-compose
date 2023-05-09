@@ -2,7 +2,7 @@ version: '3.8'
 name: withfile_prod
 
 services:
-  file-prod:
+  withfile-prod:
     container_name: withfile_prod
     image: kimd0/withfile:latest
     networks:

@@ -2,7 +2,7 @@ version: '3.8'
 name: withfile_dev
 
 services:
-  file-dev:
+  withfile-dev:
     build:
       context: /data/git/withfile
       dockerfile: Dockerfile

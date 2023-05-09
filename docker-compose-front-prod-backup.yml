@@ -1,7 +1,7 @@
 version: '3.8'
 name: withfront_prod_backup
 services:
-  withfront_prod2:
+  withfront-prod2:
     container_name: withfront_prod2
     image: kimd0/withfront:latest
     networks:

@@ -2,7 +2,7 @@ version: '3.8'
 name: withfront_dev
 
 services:
-  front-dev:
+  withfront-dev:
     build:
       context: /data/git/withfront
       dockerfile: Dockerfile

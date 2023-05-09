@@ -2,7 +2,7 @@ version: '3.8'
 name: withback_dev
 
 services:
-  back-dev:
+  withback-dev:
     build:
       context: /data/git/withback
       dockerfile: Dockerfile
