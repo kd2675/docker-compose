@@ -11,7 +11,7 @@ services:
     networks:
       - network_prod
     ports:
-      - 9801:9801
+      - 9901:9901
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
