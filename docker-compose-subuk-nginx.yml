@@ -15,7 +15,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - subuk-nginx-front:/var/log
+      - subuk_nginx_front:/var/log
     healthcheck:
       test: curl -f http://localhost:80/api/health || exit 1
       interval: 60s
@@ -35,7 +35,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - subuk-nginx-back:/var/log
+      - subuk_nginx_back:/var/log
     healthcheck:
       test: curl -f http://localhost:9900/api/auth/health || exit 1
       interval: 60s
