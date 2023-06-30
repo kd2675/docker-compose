@@ -1,0 +1,26 @@
+version: '3.8'
+name: subuk-back-1
+
+services:
+  subuk-back-1:
+    build:
+      context: /data/git/subuk-back
+      dockerfile: Dockerfile
+    container_name: subuk-back-1
+    image: kimd0/subuk-back:latest
+    networks:
+      - network_prod
+    ports:
+      - 9912:9902
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=prod
+    healthcheck:
+      test: curl -f http://localhost:9902/api/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
