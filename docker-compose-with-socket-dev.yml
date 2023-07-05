@@ -1,26 +1,26 @@
 version: '3.8'
-name: with-socket
+name: with-socket-dev
 
 services:
-  with-socket:
+  with-socket-dev:
     build:
-      context: /data/git/with-socket
+      context: /data/git/with-socket-dev
       dockerfile: Dockerfile
-    container_name: with-socket
-    image: kimd0/with-socket:latest
+    container_name: with-socket-dev
+    image: kimd0/with-socket-dev:latest
     networks:
-      - network_prod
+      - network_dev
     ports:
-      - 9904:9904
+      - 9804:9804
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
     healthcheck:
-      test: curl -f http://localhost:9904/api/health || exit 1
+      test: curl -f http://localhost:9804/api/health || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
       timeout: 10s
 networks:
-  network_prod:
+  network_dev:
     external: true
