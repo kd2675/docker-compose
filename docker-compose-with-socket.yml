@@ -1,0 +1,26 @@
+version: '3.8'
+name: with-socket
+
+services:
+  subuk-back-0:
+    build:
+      context: /data/git/with-socket
+      dockerfile: Dockerfile
+    container_name: with-socket
+    image: kimd0/with-socket:latest
+    networks:
+      - network_prod
+    ports:
+      - 9904:9904
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=prod
+    healthcheck:
+      test: curl -f http://localhost:9904/api/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
