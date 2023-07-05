@@ -4,10 +4,10 @@ name: with-socket-dev
 services:
   with-socket-dev:
     build:
-      context: /data/git/with-socket-dev
+      context: /data/git/with-socket
       dockerfile: Dockerfile
     container_name: with-socket-dev
-    image: kimd0/with-socket-dev:latest
+    image: kimd0/with-socket:latest
     networks:
       - network_dev
     ports:
