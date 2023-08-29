@@ -1,0 +1,27 @@
+version: '3.8'
+name: redis_prod
+
+services:
+  redis_prod:
+    container_name: redis_prod
+    image: redis:latest
+    networks:
+      - network_prod
+    ports:
+      - 16379:6379
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - redis_prod:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
+volumes:
+  redis_prod:
+    external: true

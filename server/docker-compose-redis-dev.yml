@@ -1,0 +1,27 @@
+version: '3.8'
+name: redis_dev
+
+services:
+  redis_dev:
+    container_name: redis_dev
+    image: redis:latest
+    networks:
+      - network_dev
+    ports:
+      - 16379:6379
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - redis_dev:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_dev:
+    external: true
+volumes:
+  redis_dev:
+    external: true

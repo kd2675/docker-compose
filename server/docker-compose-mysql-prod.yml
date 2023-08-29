@@ -1,21 +1,21 @@
 version: '3.8'
-name: withfile_prod
+name: mysql_prod
 
 services:
-  withfile-prod:
-    container_name: withfile_prod
-    image: kimd0/withfile:latest
+  mysql_prod:
+    container_name: mysql_prod
+    image: mysql:latest
     networks:
       - network_prod
     ports:
-      - 8903:8903
+      - 13306:3306
     environment:
+      - MYSQL_ROOT_PASSWORD=1234
       - TZ=Asia/Seoul
-      - USE_PROFILE=prod
     volumes:
-      - withfile_prod:/home/kimd0
+      - mysql_prod:/var/lib/mysql
     healthcheck:
-      test: curl -f http://localhost:8903/file/health/check || exit 1
+      test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
       interval: 60s
       retries: 5
       start_period: 20s
@@ -24,5 +24,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  withfile_prod:
+  mysql_prod:
     external: true
