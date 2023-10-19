@@ -1,13 +1,13 @@
 version: '3.8'
-name: withfront_prod_backup
+name: limepiece-prod-2
 services:
-  withfront-prod2:
-    container_name: withfront_prod2
-    image: kimd0/withfront:latest
+  limepiece-prod-2:
+    container_name: limepiece-prod-2
+    image: kimd0/limepiece:latest
     networks:
       - network_prod
     ports:
-      - 8921:8901
+      - 8922:8901
     environment:
       TZ=Asia: Seoul
       USE_PROFILE: prod

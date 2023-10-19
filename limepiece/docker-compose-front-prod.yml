@@ -1,14 +1,14 @@
 version: '3.8'
-name: withfront_prod
+name: limepiece-prod
 
 services:
-  withfront-prod:
-    container_name: withfront_prod
-    image: kimd0/withfront:latest
+  limepiece-prod-0:
+    container_name: limepiece-prod-0
+    image: kimd0/limepiece:latest
     networks:
       - network_prod
     ports:
-      - 8901:8901
+      - 8920:8920
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
@@ -18,13 +18,13 @@ services:
       retries: 5
       start_period: 20s
       timeout: 10s
-  withfront_prod1:
-    container_name: withfront_prod1
-    image: kimd0/withfront:latest
+  limepiece-prod-1:
+    container_name: limepiece-prod-1
+    image: kimd0/limepiece:latest
     networks:
       - network_prod
     ports:
-      - 8911:8901
+      - 8921:8920
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
