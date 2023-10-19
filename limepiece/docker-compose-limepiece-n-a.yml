@@ -1,23 +1,23 @@
 version: '3.8'
-name: nginx-b-a-p
+name: limepiece-n-a
 
 services:
-  nginx-b-a-p:
+  limepiece-n-a:
     build:
-      context: /data/git/NGINX-F-B
-      dockerfile: Dockerfile-nginx-b-a
-    container_name: nginx-b-a-p
-    image: kimd0/nginx-b-a:latest
+      context: /data/git/LIMEPIECE-N-A
+      dockerfile: Dockerfile-limepiece-n-a
+    container_name: limepiece-n-a
+    image: kimd0/limepiece-n-a:latest
     networks:
       - network_prod
     ports:
-      - 8900:8900
+      - 80:80
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - nginx-b-a-p:/var/log
+      - limepiece-n-a:/var/log
     healthcheck:
-      test: curl -f http://localhost:8900/api/auth/health || exit 1
+      test: service limepiece-n-a status || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
@@ -26,5 +26,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  nginx-b-a-p:
+  limepiece-n-a:
     external: true

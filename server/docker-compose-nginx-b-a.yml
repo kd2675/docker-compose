@@ -1,23 +1,23 @@
 version: '3.8'
-name: nginx-f-a-p
+name: nginx-b-a
 
 services:
-  nginx-f-a:
+  nginx-b-a:
     build:
-      context: /data/git/NGINX-F-A
-      dockerfile: Dockerfile-nginx-f-a
-    container_name: nginx-f-a-p
-    image: kimd0/nginx-f-a:latest
+      context: /data/git/NGINX-F-B
+      dockerfile: Dockerfile-nginx-b-a
+    container_name: nginx-b-a
+    image: kimd0/nginx-b-a:latest
     networks:
       - network_prod
     ports:
-      - 80:80
+      - 9900:9900
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - nginx-f-a-p:/var/log
+      - nginx-b-a:/var/log
     healthcheck:
-      test: curl -f http://localhost:80/api/health || exit 1
+      test: curl -f http://localhost:8900/api/auth/health || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
@@ -26,5 +26,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  nginx-f-a-p:
+  nginx-b-a:
     external: true
