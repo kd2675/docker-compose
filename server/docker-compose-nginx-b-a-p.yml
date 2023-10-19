@@ -5,9 +5,9 @@ services:
   nginx-b-a-p:
     build:
       context: /data/git/NGINX-F-B
-      dockerfile: Dockerfile-nginx-b-a-p
+      dockerfile: Dockerfile-nginx-b-a
     container_name: nginx-b-a-p
-    image: kimd0/nginx-b-a-p:latest
+    image: kimd0/nginx-b-a:latest
     networks:
       - network_prod
     ports:
