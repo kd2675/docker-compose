@@ -1,13 +1,13 @@
 version: '3.8'
-name: nginx-b-a
+name: nginx-b-a-p
 
 services:
-  nginx-b-a:
+  nginx-b-a-p:
     build:
-      context: /data/git/nginx-b-a
-      dockerfile: Dockerfile-nginx-b-a
-    container_name: nginx-b-a
-    image: kimd0/nginx-b-a:latest
+      context: /data/git/nginx-b-a-p
+      dockerfile: Dockerfile-nginx-b-a-p
+    container_name: nginx-b-a-p
+    image: kimd0/nginx-b-a-p:latest
     networks:
       - network_prod
     ports:
@@ -15,7 +15,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - nginx_back:/var/log
+      - nginx-b-a-p:/var/log
     healthcheck:
       test: curl -f http://localhost:8900/api/auth/health || exit 1
       interval: 60s

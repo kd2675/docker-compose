@@ -1,13 +1,13 @@
 version: '3.8'
-name: nginx-f-a
+name: nginx-f-a-p
 
 services:
   nginx-f-a:
     build:
-      context: /data/git/nginx-f-a
-      dockerfile: Dockerfile-nginx-f-a
-    container_name: nginx-f-a
-    image: kimd0/nginx-f-a:latest
+      context: /data/git/nginx-f-a-p
+      dockerfile: Dockerfile-nginx-f-a-p
+    container_name: nginx-f-a-p
+    image: kimd0/nginx-f-a-p:latest
     networks:
       - network_prod
     ports:
@@ -15,7 +15,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - nginx-f-a:/var/log
+      - nginx-f-a-p:/var/log
     healthcheck:
       test: curl -f http://localhost:80/api/health || exit 1
       interval: 60s
