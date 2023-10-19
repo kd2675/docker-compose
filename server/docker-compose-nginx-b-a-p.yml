@@ -26,5 +26,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  nginx_back:
+  nginx-b-a-p:
     external: true
