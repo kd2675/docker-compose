@@ -2,7 +2,7 @@ version: '3.8'
 name: nginx-b-a
 
 services:
-  nginx-back:
+  nginx-b-a:
     build:
       context: /data/git/nginx-b-a
       dockerfile: Dockerfile-nginx-b-a

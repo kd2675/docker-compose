@@ -2,7 +2,7 @@ version: '3.8'
 name: nginx-f-a
 
 services:
-  nginx-front:
+  nginx-f-a:
     build:
       context: /data/git/nginx-f-a
       dockerfile: Dockerfile-nginx-f-a
