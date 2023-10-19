@@ -4,7 +4,7 @@ name: nginx-f-a-p
 services:
   nginx-f-a:
     build:
-      context: /data/git/nginx-f-a-p
+      context: /data/git/NGINX-F-A
       dockerfile: Dockerfile-nginx-f-a-p
     container_name: nginx-f-a-p
     image: kimd0/nginx-f-a-p:latest
