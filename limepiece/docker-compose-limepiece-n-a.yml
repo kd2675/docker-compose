@@ -11,7 +11,7 @@ services:
     networks:
       - network_prod
     ports:
-      - 8900:8900
+      - 8902:8902
     environment:
       - TZ=Asia/Seoul
     volumes:
