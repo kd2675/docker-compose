@@ -1,22 +1,22 @@
 version: '3.8'
-name: subuk-front-1
+name: subuk-f-a-p-1
 
 services:
-  subuk-front-1:
+  subuk-f-a-p-1:
     build:
-      context: /data/git/subuk-front
+      context: /data/git/SUBUK-F-A
       dockerfile: Dockerfile
-    container_name: subuk-front-1
-    image: kimd0/subuk-front:latest
+    container_name: subuk-f-a-p-1
+    image: kimd0/subuk-f-a:latest
     networks:
       - network_prod
     ports:
-      - 9911:9901
+      - 8911:8910
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=pm2:prod
     healthcheck:
-      test: curl -f http://localhost:9901/api/health || exit 1
+      test: curl -f http://localhost:8910/api/health || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
