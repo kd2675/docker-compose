@@ -17,7 +17,7 @@ services:
     volumes:
       - limepiece-n-a:/var/log
     healthcheck:
-      test: service limepiece-n-a status || exit 1
+      test: service nginx status || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
