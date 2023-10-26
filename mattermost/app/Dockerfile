@@ -43,8 +43,6 @@ USER root
 
 # Configure entrypoint and command
 COPY entrypoint.sh /
-RUN chown mattermost:mattermost entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
 #Healthcheck to make sure container is ready
 HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
