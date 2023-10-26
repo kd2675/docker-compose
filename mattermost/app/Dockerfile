@@ -46,7 +46,10 @@ HEALTHCHECK CMD curl --fail http://localhost:8000 || exit 1
 
 # Configure entrypoint and command
 COPY entrypoint.sh /
+
+RUN chown nginx:nginx entrypoint.sh
 RUN chmod u+x /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 WORKDIR /mattermost
 CMD ["mattermost"]
