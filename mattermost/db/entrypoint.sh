@@ -57,8 +57,6 @@ if [ "$1" = 'postgres' ]; then
   # Update postgresql configuration
   update_conf $wal_enable
 
-  brew postgresql-upgrade-database
-
   # Run the postgresql entrypoint
   docker-entrypoint.sh postgres
 fi
