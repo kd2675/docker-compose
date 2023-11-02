@@ -2,20 +2,20 @@ version: '3.8'
 name: subuk-f-n-p
 
 services:
-  subuk-f-n:
+  subuk-f-n-p:
     build:
-      context: /data/git/SUBUK-F-N
-      dockerfile: Dockerfile-subuk-n-a
-    container_name: subuk-n-a
-    image: kimd0/subuk-n-a:latest
+      context: /data/git/subuk-f-n
+      dockerfile: Dockerfile
+    container_name: subuk-f-n-p
+    image: kimd0/subuk-f-n:latest
     networks:
       - network_prod
     ports:
-      - 8901:8901
+      - 12207:12207
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - subuk-n-a:/var/log
+      - subuk-f-n-p:/var/log
     healthcheck:
       test: service nginx status || exit 1
       interval: 60s
@@ -26,5 +26,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  subuk-n-a:
+  subuk-f-n-p:
     external: true

@@ -1,21 +1,21 @@
 version: '3.8'
-name: nginx-b-a
+name: nginx-b-n-p
 
 services:
-  nginx-b-a:
+  nginx-b-n-p:
     build:
-      context: /data/git/NGINX-B-A
-      dockerfile: Dockerfile-nginx-b-a
-    container_name: nginx-b-a
-    image: kimd0/nginx-b-a:latest
+      context: /data/git/nginx-b-n
+      dockerfile: Dockerfile
+    container_name: nginx-b-n-p
+    image: kimd0/nginx-b-n:latest
     networks:
       - network_prod
     ports:
-      - 10217:9900
+      - 10217:10217
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - nginx-b-a:/var/log
+      - nginx-b-n-p:/var/log
     healthcheck:
       test: curl -f http://localhost:9910/api/health/check || exit 1
       interval: 60s
@@ -26,5 +26,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  nginx-b-a:
+  nginx-b-n-p:
     external: true

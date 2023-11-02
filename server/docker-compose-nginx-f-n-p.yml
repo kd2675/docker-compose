@@ -2,9 +2,9 @@ version: '3.8'
 name: nginx-f-n-p
 
 services:
-  nginx-f-a:
+  nginx-f-n-p:
     build:
-      context: /data/git/NGINX-F-N
+      context: /data/git/nginx-f-n
       dockerfile: Dockerfile
     container_name: nginx-f-n-p
     image: kimd0/nginx-f-n:latest
@@ -16,7 +16,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - nginx-f-n:/var/log
+      - nginx-f-n-p:/var/log
       - /data/certbot/conf:/etc/letsencrypt
       - /data/certbot/www:/var/www/certbot
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
@@ -38,5 +38,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  nginx-f-n:
+  nginx-f-n-p:
     external: true
