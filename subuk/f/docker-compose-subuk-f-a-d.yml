@@ -11,7 +11,7 @@ services:
     networks:
       - network_dev
     ports:
-      - 8910:8910
+      - 22007:22007
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=pm2:prod

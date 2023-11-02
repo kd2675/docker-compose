@@ -1,21 +1,21 @@
 version: '3.8'
-name: limepiece-n-a
+name: subuk-f-n-p
 
 services:
-  limepiece-n-a:
+  subuk-f-n:
     build:
-      context: /data/git/LIMEPIECE-N-A
-      dockerfile: Dockerfile-limepiece-n-a
-    container_name: limepiece-n-a
-    image: kimd0/limepiece-n-a:latest
+      context: /data/git/SUBUK-F-N
+      dockerfile: Dockerfile-subuk-n-a
+    container_name: subuk-n-a
+    image: kimd0/subuk-n-a:latest
     networks:
       - network_prod
     ports:
-      - 8902:8902
+      - 8901:8901
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - limepiece-n-a:/var/log
+      - subuk-n-a:/var/log
     healthcheck:
       test: service nginx status || exit 1
       interval: 60s
@@ -26,5 +26,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  limepiece-n-a:
+  subuk-n-a:
     external: true

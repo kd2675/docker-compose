@@ -1,0 +1,30 @@
+version: '3.8'
+name: limepiece-b-n-p
+
+services:
+  limepiece-b-n-p:
+    build:
+      context: /data/git/LIMEPIECE-B-N
+      dockerfile: Dockerfile
+    container_name: limepiece-b-n-p
+    image: kimd0/limepiece-b-n:latest
+    networks:
+      - network_prod
+    ports:
+      - 11217:11217
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - limepiece-b-n-p:/var/log
+    healthcheck:
+      test: service nginx status || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
+volumes:
+  limepiece-b-n-p:
+    external: true

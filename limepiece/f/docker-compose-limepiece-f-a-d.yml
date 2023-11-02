@@ -1,0 +1,26 @@
+version: '3.8'
+name: limepiece-f-a-d-0
+
+services:
+  limepiece-f-a-d-0:
+    build:
+      context: /data/git/LIMEPIECE-F-A
+      dockerfile: Dockerfile
+    container_name: limepiece-f-a-d-0
+    image: kimd0/limepiece-f-a:latest
+    networks:
+      - network_dev
+    ports:
+      - 21007:21007
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=dev
+    healthcheck:
+      test: curl -f http://localhost:8820/api/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_dev:
+    external: true

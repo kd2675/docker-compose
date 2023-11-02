@@ -1,17 +1,17 @@
 version: '3.8'
-name: subuk-f-a-p-0
+name: subuk-f-a-p-1
 
 services:
-  subuk-f-a-p-0:
+  subuk-f-a-p-1:
     build:
       context: /data/git/SUBUK-F-A
       dockerfile: Dockerfile
-    container_name: subuk-f-a-p-0
+    container_name: subuk-f-a-p-1
     image: kimd0/subuk-f-a:latest
     networks:
       - network_prod
     ports:
-      - 8910:8910
+      - 12017:12007
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=pm2:prod

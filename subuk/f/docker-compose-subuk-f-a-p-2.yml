@@ -1,22 +1,22 @@
 version: '3.8'
-name: limepiece-f-a-p-1
+name: subuk-f-a-p-2
 
 services:
-  limepiece-f-a-p-1:
+  subuk-f-a-p-2:
     build:
-      context: /data/git/LIMEPIECE-F-A
+      context: /data/git/SUBUK-F-A
       dockerfile: Dockerfile
-    container_name: limepiece-f-a-p-1
-    image: kimd0/limepiece-f-a:latest
+    container_name: subuk-f-a-p-2
+    image: kimd0/subuk-f-a:latest
     networks:
       - network_prod
     ports:
-      - 8921:8920
+      - 12027:12007
     environment:
       - TZ=Asia/Seoul
-      - USE_PROFILE=prod
+      - USE_PROFILE=pm2:prod
     healthcheck:
-      test: curl -f http://localhost:8920/api/health || exit 1
+      test: curl -f http://localhost:8910/api/health || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
