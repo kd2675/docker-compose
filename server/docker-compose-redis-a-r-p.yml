@@ -1,9 +1,9 @@
 version: '3.8'
-name: redis_prod
+name: redis-a-r-p
 
 services:
-  redis_prod:
-    container_name: redis_prod
+  redis-a-r-p:
+    container_name: redis-a-r-p
     image: redis:latest
     networks:
       - network_prod
@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - redis_prod:/data
+      - redis-a-r-p:/data
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
       interval: 60s
@@ -23,5 +23,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  redis_prod:
+  redis-a-r-p:
     external: true

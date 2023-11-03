@@ -1,9 +1,9 @@
 version: '3.8'
-name: mysql_prod
+name: mysql-a-m-p
 
 services:
-  mysql_prod:
-    container_name: mysql_prod
+  mysql-a-m-p:
+    container_name: mysql-a-m-p
     image: mysql:latest
     networks:
       - network_prod
@@ -13,7 +13,7 @@ services:
       - MYSQL_ROOT_PASSWORD=1234
       - TZ=Asia/Seoul
     volumes:
-      - mysql_prod:/var/lib/mysql
+      - mysql-a-m-p:/var/lib/mysql
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
       interval: 60s
@@ -24,5 +24,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  mysql_prod:
+  mysql-a-m-p:
     external: true

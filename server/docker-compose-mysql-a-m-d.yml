@@ -1,9 +1,9 @@
 version: '3.8'
-name: mysql_dev
+name: mysql-a-m-d
 
 services:
-  mysql_dev:
-    container_name: mysql_dev
+  mysql-a-m-d:
+    container_name: mysql-a-m-d
     image: mysql:latest
     networks:
       - network_dev
@@ -13,7 +13,7 @@ services:
       - MYSQL_ROOT_PASSWORD=1234
       - TZ=Asia/Seoul
     volumes:
-      - mysql_dev:/var/lib/mysql
+      - mysql-a-m-d:/var/lib/mysql
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
       interval: 60s
@@ -24,5 +24,5 @@ networks:
   network_dev:
     external: true
 volumes:
-  mysql_dev:
+  mysql-a-m-d:
     external: true
