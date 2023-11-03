@@ -11,7 +11,7 @@ services:
     networks:
       - network_prod
     ports:
-      - 11117:11117
+      - 11117:11107
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
