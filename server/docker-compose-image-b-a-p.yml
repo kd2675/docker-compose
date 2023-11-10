@@ -1,24 +1,24 @@
 version: '3.8'
-name: withfile_prod
+name: image-b-a-p-0
 
 services:
-  withfile-prod:
+  image-b-a-p-0:
     build:
-      context: /data/git/withfile
+      context: /data/git/image-b-a
       dockerfile: Dockerfile
-    container_name: withfile_prod
-    image: kimd0/withfile:latest
+    container_name: image-b-a-p-0
+    image: kimd0/image-b-a:latest
     networks:
       - network_prod
     ports:
-      - 8903:8903
+      - 10307:10307
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
     volumes:
-      - withfile_prod:/home/kimd0
+      - image-b-a-p:/home/kimd0
     healthcheck:
-      test: curl -f http://localhost:8903/file/health/check || exit 1
+      test: curl -f http://localhost:10307/health/check || exit 1
       interval: 60s
       retries: 5
       start_period: 20s
@@ -27,5 +27,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  withfile_prod:
+  image-b-a-p:
     external: true

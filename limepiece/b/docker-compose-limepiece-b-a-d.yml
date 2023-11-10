@@ -4,7 +4,7 @@ name: limepiece-f-a-d-0
 services:
   limepiece-f-a-d-0:
     build:
-      context: /data/git/LIMEPIECE-F-A
+      context: /data/git/limepiece-b-a
       dockerfile: Dockerfile
     container_name: limepiece-f-a-d-0
     image: kimd0/limepiece-b-a:latest
