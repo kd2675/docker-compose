@@ -1,17 +1,17 @@
 version: '3.8'
-name: limepiece-b-a-p-0
+name: subuk-b-a-p-2
 
 services:
-  limepiece-b-a-p-0:
+  subuk-b-a-p-2:
     build:
       context: /data/git/api-b-a
       dockerfile: Dockerfile
-    container_name: limepiece-b-a-p-0
+    container_name: subuk-b-a-p-2
     image: kimd0/api-b-a:latest
     networks:
       - network_prod
     ports:
-      - 11107:10107
+      - 12127:10107
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
