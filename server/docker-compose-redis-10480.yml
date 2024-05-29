@@ -1,27 +1,28 @@
 version: '3.8'
-name: redis-a-r-d
+name: redis-10480
 
 services:
-  redis-a-r-d:
-    container_name: redis-a-r-d
+  redis-10480:
+    container_name: redis-10480
     image: redis:latest
     networks:
-      - network_dev
+      - network_prod
     ports:
-      - 26379:6379
+      - 16379:6379
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - redis-a-r-d:/data
+      - redis-a-r-p:/data
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
       interval: 60s
       retries: 5
       start_period: 20s
       timeout: 10s
+    restart: unless-stopped
 networks:
-  network_dev:
+  network_prod:
     external: true
 volumes:
-  redis-a-r-d:
+  redis-a-r-p:
     external: true

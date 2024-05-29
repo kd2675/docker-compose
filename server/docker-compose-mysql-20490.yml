@@ -1,28 +1,29 @@
 version: '3.8'
-name: mysql-a-m-p
+name: mysql-20490
 
 services:
-  mysql-a-m-p:
-    container_name: mysql-a-m-p
+  mysql-20490:
+    container_name: mysql-20490
     image: mysql:latest
     networks:
-      - network_prod
+      - network_dev
     ports:
-      - 13306:3306
+      - 23306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=1234
       - TZ=Asia/Seoul
     volumes:
-      - mysql-a-m-p:/var/lib/mysql
+      - mysql-a-m-d:/var/lib/mysql
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
       interval: 60s
       retries: 5
       start_period: 20s
       timeout: 10s
+    restart: unless-stopped
 networks:
-  network_prod:
+  network_dev:
     external: true
 volumes:
-  mysql-a-m-p:
+  mysql-a-m-d:
     external: true
