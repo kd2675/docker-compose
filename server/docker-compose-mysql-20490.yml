@@ -25,5 +25,5 @@ networks:
   network_dev:
     external: true
 volumes:
-  mysql-a-m-d:
+  mysql-20490:
     external: true

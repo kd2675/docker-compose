@@ -25,5 +25,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  mysql-a-m-p:
+  mysql-10490:
     external: true
