@@ -12,7 +12,7 @@ services:
     environment:
       - TZ=Asia/Seoul
     volumes:
-      - redis-a-r-p:/data
+      - redis-10480:/data
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
       interval: 60s
