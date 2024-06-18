@@ -5,8 +5,7 @@ services:
   cocoin-batch-10490:
     build:
       context: /data/git/second
-      target: /data/git/second/service-batch
-      dockerfile: Dockerfile
+      dockerfile: /data/git/second/service-batch/Dockerfile
     container_name: cocoin-batch-10490
     image: kimd0/cocoin-batch:latest
     networks:
