@@ -1,13 +1,13 @@
 version: '3.8'
-name: cocoin-batch-10290
+name: server-batch-10290
 
 services:
-  cocoin-batch-10290:
+  server-batch-10290:
     build:
       context: /data/git/second
-      dockerfile: /data/git/second/service-batch/Dockerfile
-    container_name: cocoin-batch-10290
-    image: kimd0/cocoin-batch:latest
+      dockerfile: /data/git/second/sever-batch/Dockerfile
+    container_name: server-batch-10290
+    image: kimd0/server-batch:latest
     networks:
       - network_prod
     ports:
