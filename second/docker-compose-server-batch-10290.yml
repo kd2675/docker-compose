@@ -5,7 +5,7 @@ services:
   server-batch-10290:
     build:
       context: /data/git/second
-      dockerfile: /data/git/second/sever-batch/Dockerfile
+      dockerfile: /data/git/second/server-batch/Dockerfile
     container_name: server-batch-10290
     image: kimd0/server-batch:latest
     networks:
