@@ -2,12 +2,18 @@ version: '3.8'
 name: jenkins
 services:
   jenkins:
-    image: jenkins/jenkins:lts
     container_name: jenkins
+    build:
+      context: /data/git/docker-compose/jenkins
+      dockerfile: Dockerfile
+    image: jenkins/jenkins:lts
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /data/jenkins:/var/jenkins_home
+      - /home/groot/.ssh:/root/.ssh
     ports:
       - "8700:8080"
+      - "50000:50000"
+    restart: unless-stopped
     privileged: true
     user: root
