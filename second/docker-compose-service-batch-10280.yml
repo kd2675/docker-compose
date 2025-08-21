@@ -1,0 +1,31 @@
+version: '3.8'
+name: service-batch-10280
+
+services:
+  service-batch-10280:
+    build:
+      context: /data/git/second
+      dockerfile: /data/git/second/service-batch/Dockerfile
+    container_name: service-batch-10280
+    image: kimd0/service-batch:latest
+    networks:
+      - network_prod
+    ports:
+      - 10280:10280
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=prod
+    volumes:
+      - service-batch-10280:/data
+    healthcheck:
+      test: curl -f http://localhost:10280/test/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
+volumes:
+  service-batch-10280:
+    external: true
