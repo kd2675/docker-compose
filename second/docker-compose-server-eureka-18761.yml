@@ -11,7 +11,7 @@ services:
     networks:
       - network_prod
     ports:
-      - 18761:8761
+      - 18761:18761
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
