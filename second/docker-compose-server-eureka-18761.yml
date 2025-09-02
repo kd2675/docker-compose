@@ -1,0 +1,31 @@
+version: '3.8'
+name: server-eureka-18761
+
+services:
+  server-eureka-18761:
+    build:
+      context: /data/git/second
+      dockerfile: /data/git/second/server-eureka/Dockerfile
+    container_name: server-eureka-18761
+    image: kimd0/server-eureka:latest
+    networks:
+      - network_prod
+    ports:
+      - 18761:8761
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=prod
+    volumes:
+      - server-eureka-18761:/data
+    healthcheck:
+      test: curl -f http://localhost:18761/actuator/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
+volumes:
+  server-eureka-18761:
+    external: true
