@@ -12,6 +12,11 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=1234
       - TZ=Asia/Seoul
+    command: >
+      --max-connections=1000
+      --max-user-connections=900
+      --interactive-timeout=300
+      --wait-timeout=300
     volumes:
       - mysql-10490:/var/lib/mysql
     healthcheck:
