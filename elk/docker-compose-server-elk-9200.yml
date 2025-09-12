@@ -12,7 +12,7 @@ services:
       - xpack.security.enrollment.enabled=false
       - network.host=0.0.0.0  # 모든 네트워크 인터페이스에서 수신
       - http.host=0.0.0.0
-      - transport.host=localhost
+      - transport.host=0.0.0.0
       - cluster.name=docker-cluster
       - node.name=elasticsearch-node
 
@@ -84,10 +84,10 @@ services:
       retries: 3
       start_period: 60s
 
-
 networks:
   network_prod:
     external: true
+
 volumes:
   es_data:
     external: true
