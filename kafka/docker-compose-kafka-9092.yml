@@ -21,9 +21,6 @@ services:
     networks:
       - network_prod
     restart: unless-stopped
-    depends_on:
-      zookeeper:
-        condition: service_healthy
 
 networks:
   network_prod:
