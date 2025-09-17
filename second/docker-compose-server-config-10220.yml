@@ -16,7 +16,7 @@ services:
       - TZ=Asia/Seoul
       - USE_PROFILE=prod
     volumes:
-      - config-10220:/data
+      - server-config-10220:/data
     healthcheck:
       test: curl -f http://localhost:10220/actuator/health || exit 1
       interval: 60s
@@ -27,5 +27,5 @@ networks:
   network_prod:
     external: true
 volumes:
-  config-10220:
+  server-config-10220:
     external: true
