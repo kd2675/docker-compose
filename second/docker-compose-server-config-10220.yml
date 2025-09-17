@@ -14,7 +14,7 @@ services:
       - 10220:10220
     environment:
       - TZ=Asia/Seoul
-      - USE_PROFILE=prod
+      - USE_PROFILE=native
     volumes:
       - server-config-10220:/data
     healthcheck:
