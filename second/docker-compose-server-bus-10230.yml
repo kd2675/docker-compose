@@ -1,0 +1,31 @@
+version: '3.8'
+name: server-bus-10230
+
+services:
+  server-bus-10230:
+    build:
+      context: /data/git/second
+      dockerfile: /data/git/second/server-bus/Dockerfile
+    container_name: server-bus-10230
+    image: kimd0/server-bus:latest
+    networks:
+      - network_prod
+    ports:
+      - 10230:10230
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=prod
+    volumes:
+      - bus-10230:/data
+    healthcheck:
+      test: curl -f http://localhost:10230/actuator/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
+volumes:
+  bus-10230:
+    external: true
