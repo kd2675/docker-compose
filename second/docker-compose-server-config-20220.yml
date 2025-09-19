@@ -9,7 +9,7 @@ services:
     container_name: server-config-20220
     image: kimd0/server-config:latest
     networks:
-      - network_prod
+      - network_dev
     ports:
       - 20220:10220
     environment:
