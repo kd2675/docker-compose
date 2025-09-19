@@ -15,6 +15,7 @@ services:
     environment:
       - TZ=Asia/Seoul
       - USE_PROFILE=native
+      - USE_EUREKA_URL=http://kimd0.iptime.org:20210/eureka/
     volumes:
       - server-config-20220:/data
     healthcheck:
