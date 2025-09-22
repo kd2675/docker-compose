@@ -16,7 +16,7 @@ services:
     image: wurstmeister/kafka:latest
     container_name: kafka-29092
     ports:
-      - "29092:9092"
+      - "9092:9092"
     environment:
       TZ: Asia/Seoul
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-22181:2181
