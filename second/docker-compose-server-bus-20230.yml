@@ -14,7 +14,7 @@ services:
       - 20230:20230
     environment:
       - TZ=Asia/Seoul
-      - USE_PROFILE=prod
+      - USE_PROFILE=dev
     volumes:
       - server-bus-20230:/data
     healthcheck:
