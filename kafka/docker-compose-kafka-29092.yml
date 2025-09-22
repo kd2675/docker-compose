@@ -7,6 +7,8 @@ services:
     container_name: zookeeper-22181
     ports:
       - "22181:2181"
+    environment:
+      TZ: Asia/Seoul
     networks:
       - network_dev
     restart: unless-stopped
@@ -16,12 +18,11 @@ services:
     ports:
       - "29092:9092"
     environment:
+      TZ: Asia/Seoul
       KAFKA_ZOOKEEPER_CONNECT: zookeeper-22181:2181
-      # EXTERNAL을 먼저 배치
-      KAFKA_LISTENERS: EXTERNAL://0.0.0.0:9092
-      # EXTERNAL을 먼저 배치
-      KAFKA_ADVERTISED_LISTENERS: EXTERNAL://kimd0.iptime.org:29092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT
+      KAFKA_LISTENERS: EXTERNAL://0.0.0.0:9092,INTERNAL://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: EXTERNAL://kimd0.iptime.org:29092,INTERNAL://0.0.0.0:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: EXTERNAL:PLAINTEXT,INTERNAL:PLAINTEXT
       # 브로커 간 통신은 내부 리스너 사용
       KAFKA_INTER_BROKER_LISTENER_NAME: EXTERNAL
       # 기타 안정화 옵션들
