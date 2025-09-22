@@ -15,7 +15,7 @@ services:
       - "19092:19092"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:12181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper-12181:12181
     networks:
       - network_prod
     restart: unless-stopped
