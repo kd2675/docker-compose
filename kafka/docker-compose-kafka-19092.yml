@@ -1,4 +1,6 @@
 version: '3.8'
+name: kafka-19092
+
 services:
   zookeeper-12181:
     image: wurstmeister/zookeeper:latest
@@ -15,7 +17,7 @@ services:
       - "19092:9092"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper-12181:12181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper-12181:2181
     networks:
       - network_prod
     restart: unless-stopped
