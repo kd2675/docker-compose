@@ -4,7 +4,7 @@ services:
     image: wurstmeister/zookeeper:latest
     container_name: zookeeper-12181
     ports:
-      - "12181:2181"
+      - "12181:12181"
     networks:
       - network_prod
     restart: unless-stopped
@@ -12,10 +12,10 @@ services:
     image: wurstmeister/kafka:latest
     container_name: kafka-19092
     ports:
-      - "19092:9092"
+      - "19092:19092"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:12181
     networks:
       - network_prod
     restart: unless-stopped
