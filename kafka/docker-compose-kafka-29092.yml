@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  zookeeper:
+  zookeeper-22181:
     image: wurstmeister/zookeeper:latest
     container_name: zookeeper-22181
     ports:
@@ -8,7 +8,7 @@ services:
     networks:
       - network_dev
     restart: unless-stopped
-  kafka:
+  kafka-29092:
     image: wurstmeister/kafka:latest
     container_name: kafka-29092
     ports:
