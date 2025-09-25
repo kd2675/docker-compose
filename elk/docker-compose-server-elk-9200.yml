@@ -8,8 +8,6 @@ services:
     environment:
       - discovery.type=single-node
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
-      - xpack.security.enabled=false  # 보안 기능 비활성화
-      - xpack.security.enrollment.enabled=false
       - network.host=0.0.0.0  # 모든 네트워크 인터페이스에서 수신
       - http.host=0.0.0.0
       - transport.host=0.0.0.0
@@ -38,7 +36,6 @@ services:
     container_name: kibana
     environment:
       - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      - XPACK_SECURITY_ENABLED=false
       - SERVER_HOST=0.0.0.0
       - ELASTICSEARCH_REQUEST_TIMEOUT=120000  # 타임아웃 증가
       - ELASTICSEARCH_PING_TIMEOUT=120000
