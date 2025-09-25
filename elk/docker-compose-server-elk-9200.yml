@@ -70,8 +70,7 @@ services:
       - "5044:5044"
       - "9600:9600"  # API 포트 추가
     depends_on:
-      elasticsearch:
-        condition: service_healthy  # ⚠️ 중요: 헬스체크 기반 의존성
+      - elasticsearch
     networks:
       - network_prod
     healthcheck:
