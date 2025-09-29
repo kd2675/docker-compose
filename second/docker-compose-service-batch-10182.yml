@@ -1,0 +1,31 @@
+version: '3.8'
+name: service-batch-10182
+
+services:
+  service-batch-10182:
+    build:
+      context: /data/git/second
+      dockerfile: /data/git/second/service-batch/Dockerfile
+    container_name: service-batch-10182
+    image: kimd0/service-batch:latest
+    networks:
+      - network_prod
+    ports:
+      - 10182:10180
+    environment:
+      - TZ=Asia/Seoul
+      - USE_PROFILE=prod
+    volumes:
+      - service-batch-10182:/data
+    healthcheck:
+      test: curl -f http://localhost:10180/actuator/health || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+networks:
+  network_prod:
+    external: true
+volumes:
+  service-batch-10182:
+    external: true
