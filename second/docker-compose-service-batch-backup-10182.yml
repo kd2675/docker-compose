@@ -5,9 +5,9 @@ services:
   service-batch-backup-10182:
     build:
       context: /data/git/second
-      dockerfile: /data/git/second/service-batch-backup/Dockerfile
+      dockerfile: /data/git/second/service-batch/Dockerfile
     container_name: service-batch-backup-10182
-    image: kimd0/service-batch-backup:latest
+    image: kimd0/service-batch:latest
     networks:
       - network_prod
     ports:
