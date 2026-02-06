@@ -21,7 +21,6 @@ services:
 
       # 보안 및 실행 모드
       - ENABLE_TERMINAL=true
-      - EXECUTION_MODE=sandbox
       - MAX_ITERATIONS=10                   # API 비용 폭탄 방지 루프 제한
 
       # 이 환경변수와 아래 볼륨 매핑 경로가 일치해야 합니다.
