@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  openclaw-gateway:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-gateway
+    restart: always
+    env_file: .env
+    environment:
+      # 모델 설정 (Gemini 3 및 OpenAI)
+      - PRIMARY_MODEL=gemini-2.5-pro
+      - CODING_MODEL=gpt-4o
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+      # 디스코드 설정
+      - MESSENGER_TYPE=discord
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+      - ALLOWED_USERS=${MY_DISCORD_ID}
+
+      # 보안 및 실행 모드
+      - ENABLE_TERMINAL=true
+      - EXECUTION_MODE=sandbox
+      - MAX_ITERATIONS=10                   # API 비용 폭탄 방지 루프 제한
+
+      # 이 환경변수와 아래 볼륨 매핑 경로가 일치해야 합니다.
+      - WORKSPACE_DIR=/home/node/.openclaw/workspace
+    volumes:
+      - ./.openclaw:/home/node/.openclaw
+      - ./workspace:/home/node/.openclaw/workspace
+      - /var/run/docker.sock:/var/run/docker.sock # 샌드박스 구동용
+    ports:
+      - "18789:18789" # 관리 UI (SSH 터널링 권장)
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 3072M
+
+networks:
+  default:
+    name: openclaw-network
